@@ -6,6 +6,9 @@ const PORT = 3000;
 
 // Middleware to read JSON request bodies
 app.use(express.json());
+app.get('/', (req, res) => {
+    res.send('Travel Destination API is running successfully!');
+});
 
 // Sample travel destinations stored in memory
 let destinations = [
