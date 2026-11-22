@@ -1,12 +1,14 @@
+import 'dotenv/config';
+import pg from 'pg';
 
-const { Pool } = require('pg');
+const { Pool } = pg;
 
 const pool = new Pool({
-    user: 'postgres',
-    host: 'localhost',
-    database: 'travel_db',
-    password: 'travel123',
-    port: 5432
+    user: process.env.DB_USER,
+    host: process.env.DB_HOST,
+    database: process.env.DB_NAME,
+    password: process.env.DB_PASSWORD,
+    port: Number(process.env.DB_PORT)
 });
 
 pool.connect((err, client, release) => {
@@ -18,4 +20,4 @@ pool.connect((err, client, release) => {
     release();
 });
 
-module.exports = pool;
+export default pool;
