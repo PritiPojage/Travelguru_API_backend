@@ -6,7 +6,7 @@ const PORT = 3000;
 import pool from './db.js';
 import cors from 'cors';
 import authRoutes from './routes/auth.js';
-import { authenticate, authorizeRoles } from './middleware/auth.js';
+import { authenticate, authorizeRoles } from './middleware/middleauth.js';
 app.use(express.json());
 
 // Allow the React (Vite) frontend to call this API, including the Authorization header
